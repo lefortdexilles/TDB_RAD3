@@ -74,7 +74,7 @@ def update(frame):
 
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(categories_radar)
-    ax.set_title(f"Radar comparant les ETP ({prog}) – tolérance taille = {i}", y=1.1)
+    ax.set_title(f"Radar comparant les ETP ({prog}) – tolérance sur la taille de l'intervalle = {i}", y=1.1)
     ax.legend(loc="upper right", bbox_to_anchor=(1.2, 1.1))
 
 ani = animation.FuncAnimation(fig, update, frames=len(taille), interval=2000, repeat=True)
