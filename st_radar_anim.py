@@ -12,10 +12,10 @@ st.set_page_config(page_title="Comparaison d'ETP entre un pays et un groupe ayan
                    layout='wide')
 
 # --- Données ---
-df = pd.read_excel('socle_rh_24.xlsx', sheet_name='Feuil1')
+df = pd.read_excel('socle_rh_243.xlsx')
 
 # Nettoyage
-df = df[df['Cat Stat'] != "G0"]
+df = df[df['Cat LOLF'] != "G0"]
 df = df[['région', 'Pays', 'Correspondance', 'ETP']]
 df.dropna(inplace=True)
 
@@ -59,7 +59,7 @@ def update(frame):
     moyenne_iso.insert(0, 'région', "iso 105")
 
     df_extended = pd.concat([pivot_df, moyenne_iso], ignore_index=True)
-    df_subset = df_extended[df_extended["Pays"].isin([co, "moyenne iso 105"])]
+    df_subset = df_extended[df_extended[ "Pays"].isin([co, "moyenne iso 105"])]
 
     categories_radar = ["Chancellerie", "Consulaire", "DCSD", "EAF/AF/EXT", "SCAC", "Support"]
     N = len(categories_radar)
