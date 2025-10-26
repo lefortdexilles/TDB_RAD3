@@ -56,7 +56,7 @@ def update(frame):
     pivot_df3= pivot_df2[~pivot_df2['Pays'].isin([co])]
 
     moyenne_iso = pivot_df3[["Chancellerie", "Consulaire", "DCSD", "EAF/AF/EXT", "SCAC", "Support"]].mean().to_frame().T
-    moyenne_iso.insert(0, 'Pays', "moyenne iso 105")
+    moyenne_iso.insert(0, 'Pays', "groupe iso-coût")
     moyenne_iso.insert(0, 'région', "iso 105")
 
     df_extended = pd.concat([pivot_df, moyenne_iso], ignore_index=True)
