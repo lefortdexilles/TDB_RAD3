@@ -60,7 +60,7 @@ def update(frame):
     moyenne_iso.insert(0, 'région', "iso 105")
 
     df_extended = pd.concat([pivot_df, moyenne_iso], ignore_index=True)
-    df_subset = df_extended[df_extended[ "Pays"].isin([co, "moyenne iso 105"])]
+    df_subset = df_extended[df_extended[ "Pays"].isin([co, "groupe iso-coût"])]
 
     categories_radar = ["Chancellerie", "Consulaire", "DCSD", "EAF/AF/EXT", "SCAC", "Support"]
     N = len(categories_radar)
