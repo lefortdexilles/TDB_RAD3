@@ -53,8 +53,9 @@ def update(frame):
     df_filtre = dfc[(dfc[prog] >= val - d) & (dfc[prog] <= val + d)]
     categories_filtre = df_filtre["Pays"].unique()
     pivot_df2 = pivot_df[pivot_df['Pays'].isin(categories_filtre)]
+    pivot_df3= pivot_df2[~pivot_df2['Pays'].isin([co])]
 
-    moyenne_iso = pivot_df2[["Chancellerie", "Consulaire", "DCSD", "EAF/AF/EXT", "SCAC", "Support"]].mean().to_frame().T
+    moyenne_iso = pivot_df3[["Chancellerie", "Consulaire", "DCSD", "EAF/AF/EXT", "SCAC", "Support"]].mean().to_frame().T
     moyenne_iso.insert(0, 'Pays', "moyenne iso 105")
     moyenne_iso.insert(0, 'région', "iso 105")
 
